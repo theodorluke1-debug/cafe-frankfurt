@@ -321,14 +321,26 @@ function Reviews() {
 
 function Visit() {
   const items = [
-    { icon: MapPin, title: "Adresse", lines: ["Leipziger Straße", "60487 Frankfurt am Main"] },
+    {
+      icon: MapPin,
+      title: "Adresse",
+      lines: ["Leipziger Straße 108", "60487 Frankfurt am Main"],
+    },
     {
       icon: Clock,
       title: "Öffnungszeiten",
-      lines: ["Mo – Fr · 8:30 – 19:00", "Sa & So · 9:00 – 19:00"],
+      lines: ["Mo – Sa · 09:00 – 22:00", "So & Feiertage · 10:00 – 21:00"],
     },
-    { icon: Phone, title: "Reservierung", lines: ["+49 69 — auf Anfrage", "Walk-ins willkommen"] },
-    { icon: Instagram, title: "Folge uns", lines: ["@fridas.cafe", "Neue Specials wöchentlich"] },
+    {
+      icon: Phone,
+      title: "Kontakt",
+      lines: ["+49 (0) 69 27273023", "info@fridas-cafe.de"],
+    },
+    {
+      icon: Instagram,
+      title: "Good to know",
+      lines: ["Keine Reservierung", "Einfach vorbeikommen"],
+    },
   ];
   return (
     <section id="visit" className="bg-cream py-28">
