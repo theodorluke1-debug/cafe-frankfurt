@@ -4,6 +4,7 @@ import pancakesImg from "@/assets/pancakes.jpg";
 import coffeeImg from "@/assets/coffee.jpg";
 import brunchImg from "@/assets/brunch.jpg";
 import { Star, MapPin, Clock, Phone, Instagram } from "lucide-react";
+import { Speisekarte } from "@/components/Speisekarte";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -75,6 +76,7 @@ function Index() {
       <Hero />
       <Stats />
       <Menu />
+      <Speisekarte />
       <About />
       <Reviews />
       <Visit />
