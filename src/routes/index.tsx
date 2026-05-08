@@ -1,9 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero.jpg";
 import pancakesImg from "@/assets/pancakes.jpg";
 import coffeeImg from "@/assets/coffee.jpg";
 import brunchImg from "@/assets/brunch.jpg";
-import { Star, MapPin, Clock, Phone, Instagram } from "lucide-react";
+import { Star, MapPin, Clock, Phone, Instagram, Newspaper } from "lucide-react";
 import { Speisekarte } from "@/components/Speisekarte";
 
 export const Route = createFileRoute("/")({
@@ -79,6 +79,7 @@ function Index() {
       <Speisekarte />
       <About />
       <Reviews />
+      <Press />
       <Visit />
       <Footer />
     </div>
@@ -321,14 +322,26 @@ function Reviews() {
 
 function Visit() {
   const items = [
-    { icon: MapPin, title: "Adresse", lines: ["Leipziger Straße", "60487 Frankfurt am Main"] },
+    {
+      icon: MapPin,
+      title: "Adresse",
+      lines: ["Leipziger Straße 108", "60487 Frankfurt am Main"],
+    },
     {
       icon: Clock,
       title: "Öffnungszeiten",
-      lines: ["Mo – Fr · 8:30 – 19:00", "Sa & So · 9:00 – 19:00"],
+      lines: ["Mo – Sa · 09:00 – 22:00", "So & Feiertage · 10:00 – 21:00"],
     },
-    { icon: Phone, title: "Reservierung", lines: ["+49 69 — auf Anfrage", "Walk-ins willkommen"] },
-    { icon: Instagram, title: "Folge uns", lines: ["@fridas.cafe", "Neue Specials wöchentlich"] },
+    {
+      icon: Phone,
+      title: "Kontakt",
+      lines: ["+49 (0) 69 27273023", "info@fridas-cafe.de"],
+    },
+    {
+      icon: Instagram,
+      title: "Good to know",
+      lines: ["Keine Reservierung", "Einfach vorbeikommen"],
+    },
   ];
   return (
     <section id="visit" className="bg-cream py-28">
@@ -366,14 +379,77 @@ function Visit() {
   );
 }
 
+function Press() {
+  return (
+    <section className="bg-rose py-28 text-cream">
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-[auto_1fr] md:items-start">
+        <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-cream/15 backdrop-blur">
+          <Newspaper className="h-7 w-7" />
+        </div>
+        <div>
+          <span className="font-script text-2xl text-marigold">la prensa</span>
+          <h2 className="mt-1 font-display text-4xl font-extrabold leading-tight md:text-5xl">
+            Neu in Bockenheim: Frida's Café
+          </h2>
+          <p className="mt-2 text-sm uppercase tracking-widest text-cream/70">
+            Veröffentlicht auf frankfurtdubistsowunderbar.de
+          </p>
+          <div className="mt-6 space-y-4 text-cream/90 md:text-lg">
+            <p>
+              Es gibt wieder etwas Neues zum Kaffeetrinken in Frankfurt! Genauer gesagt
+              in Bockenheim. Fridas Café heißt der gastronomische Neuzugang in der
+              Leipziger Straße.
+            </p>
+            <p>
+              Die Brüder Cadag und Yoldas Telli haben das „Gastro-Gen" schon von ihrem
+              Vater in die Wiege gelegt bekommen. In Bockenheim aufgewachsen war es für
+              die Telli-Brüder nur logisch, ihr eigenes Café im Heimatviertel zu eröffnen:
+              <em> „Wir kommen hier einfach nicht raus!"</em>
+            </p>
+          </div>
+          <a
+            href="https://frankfurtdubistsowunderbar.de"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-cream px-6 py-3 text-sm font-semibold text-rose transition hover:scale-105"
+          >
+            Read the whole story →
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
-    <footer className="bg-foreground py-12 text-cream/80">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 md:flex-row">
-        <div className="font-display text-2xl font-extrabold text-cream">
-          Frida<span className="text-marigold">.</span>
+    <footer className="bg-foreground py-14 text-cream/80">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid gap-10 md:grid-cols-3">
+          <div>
+            <div className="font-display text-3xl font-extrabold text-cream">
+              Frida<span className="text-marigold">.</span>
+            </div>
+            <p className="mt-3 text-sm">Eat, drink &amp; socialize at Frida's.</p>
+          </div>
+          <div className="text-sm">
+            <h4 className="font-display text-base font-bold text-cream">Way to our heart</h4>
+            <p className="mt-3">Leipziger Straße 108<br />60487 Frankfurt am Main</p>
+            <p className="mt-3">+49 (0) 69 27273023<br />info@fridas-cafe.de</p>
+          </div>
+          <div className="text-sm">
+            <h4 className="font-display text-base font-bold text-cream">Open daily</h4>
+            <p className="mt-3">Mo – Sa · 09 – 22 h<br />So &amp; Feiertage · 10 – 21 h</p>
+            <div className="mt-5 flex gap-4">
+              <Link to="/impressum" className="hover:text-marigold transition">Impressum</Link>
+              <Link to="/datenschutz" className="hover:text-marigold transition">Datenschutz</Link>
+              <Link to="/agb" className="hover:text-marigold transition">AGB</Link>
+            </div>
+          </div>
         </div>
-        <p className="text-xs">© {new Date().getFullYear()} Frida's Café · Frankfurt am Main</p>
+        <p className="mt-12 border-t border-cream/10 pt-6 text-center text-xs">
+          © {new Date().getFullYear()} Frida's Café · Frankfurt am Main
+        </p>
       </div>
     </footer>
   );
