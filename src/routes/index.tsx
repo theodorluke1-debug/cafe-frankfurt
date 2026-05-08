@@ -4,6 +4,7 @@ import pancakesImg from "@/assets/pancakes.jpg";
 import coffeeImg from "@/assets/coffee.jpg";
 import brunchImg from "@/assets/brunch.jpg";
 import { Star, MapPin, Clock, Phone, Instagram } from "lucide-react";
+import { Speisekarte } from "@/components/Speisekarte";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -75,6 +76,7 @@ function Index() {
       <Hero />
       <Stats />
       <Menu />
+      <Speisekarte />
       <About />
       <Reviews />
       <Visit />
@@ -359,14 +361,6 @@ function Visit() {
           ))}
         </div>
 
-        <div className="mt-12 overflow-hidden rounded-3xl ring-1 ring-border">
-          <iframe
-            title="Frida's Café Lage"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=8.6450%2C50.1170%2C8.6650%2C50.1270&layer=mapnik"
-            className="h-[360px] w-full"
-            loading="lazy"
-          />
-        </div>
       </div>
     </section>
   );
